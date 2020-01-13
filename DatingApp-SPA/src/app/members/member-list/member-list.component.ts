@@ -28,14 +28,14 @@ export class MemberListComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe(data => {
-      this.users = data.users.result;
+      this.users = data['users'].result;
       this.pagination = data['users'].pagination;
-      this.userParams.gender =
-        this.user.gender === 'female' ? 'male' : 'female';
-      this.userParams.minAge = 18;
-      this.userParams.maxAge = 99;
-      this.userParams.orderBy = 'lastActive';
     });
+
+    this.userParams.gender = this.user.gender === 'female' ? 'male' : 'female';
+    this.userParams.minAge = 18;
+    this.userParams.maxAge = 99;
+    this.userParams.orderBy = 'lastActive';
   }
 
   pageChanged(event: any): void {

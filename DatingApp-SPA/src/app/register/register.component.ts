@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { AlertifyService } from '../_services/alertify.service';
 import {
@@ -18,7 +18,6 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   @Output() cancelRegister = new EventEmitter();
-
   user: User;
   registerForm: FormGroup;
   bsConfig: Partial<BsDatepickerConfig>;
@@ -31,10 +30,10 @@ export class RegisterComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    (this.bsConfig = {
+    this.bsConfig = {
       containerClass: 'theme-red'
-    }),
-      this.createRegisterForm();
+    };
+    this.createRegisterForm();
   }
 
   createRegisterForm() {
@@ -71,7 +70,7 @@ export class RegisterComponent implements OnInit {
       this.user = Object.assign({}, this.registerForm.value);
       this.authService.register(this.user).subscribe(
         () => {
-          this.alertify.success('Registration Successful');
+          this.alertify.success('Registration succesful');
         },
         error => {
           this.alertify.error(error);

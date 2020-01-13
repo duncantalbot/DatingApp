@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ɵangular_packages_platform_browser_animations_animations_f } from '@angular/platform-browser/animations';
+import { User } from '../_models/user';
+import { Pagination, PaginatedResult } from '../_models/pagination';
 import { AuthService } from '../_services/auth.service';
 import { UserService } from '../_services/user.service';
-import { ActivatedRoute } from '@angular/router';
-import { User } from '../_models/user';
+import { ActivatedRoute } from '../../../node_modules/@angular/router';
 import { AlertifyService } from '../_services/alertify.service';
-import { Pagination, PaginatedResult } from 'src/app/_models/pagination';
 
 @Component({
   selector: 'app-lists',

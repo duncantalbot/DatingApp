@@ -31,11 +31,9 @@ export class MemberEditComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe(data => {
-      this.user = data['user'];
+      this.user = data[`user`];
     });
-    this.authService.currentPhotoUrl.subscribe(
-      photoUrl => (this.photoUrl = photoUrl)
-    );
+    this.authService.currentPhotoUrl.subscribe(photoUrl => this.photoUrl = photoUrl);
   }
 
   updateUser() {
@@ -52,7 +50,7 @@ export class MemberEditComponent implements OnInit {
       );
   }
 
-  updateMainPhoto(photourl) {
-    this.user.photoURL = photourl;
+  updateMainPhoto(photoUrl) {
+    this.user.photoUrl = photoUrl;
   }
 }

@@ -2,12 +2,17 @@
 
 namespace DatingApp.API.Migrations
 {
-    public partial class AddCountry : Migration
+    public partial class ExtendUserClassCorrection : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "Country",
+                name: "Interests",
+                table: "Users",
+                nullable: true);
+
+            migrationBuilder.AddColumn<string>(
+                name: "LookingFor",
                 table: "Users",
                 nullable: true);
         }
@@ -15,7 +20,11 @@ namespace DatingApp.API.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Country",
+                name: "Interests",
+                table: "Users");
+
+            migrationBuilder.DropColumn(
+                name: "LookingFor",
                 table: "Users");
         }
     }

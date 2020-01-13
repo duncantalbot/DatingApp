@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DatingApp.API.Migrations
@@ -9,6 +10,11 @@ namespace DatingApp.API.Migrations
         {
             migrationBuilder.AddColumn<string>(
                 name: "City",
+                table: "Users",
+                nullable: true);
+
+            migrationBuilder.AddColumn<string>(
+                name: "Country",
                 table: "Users",
                 nullable: true);
 
@@ -30,11 +36,6 @@ namespace DatingApp.API.Migrations
                 nullable: true);
 
             migrationBuilder.AddColumn<string>(
-                name: "Interests",
-                table: "Users",
-                nullable: true);
-
-            migrationBuilder.AddColumn<string>(
                 name: "Introduction",
                 table: "Users",
                 nullable: true);
@@ -50,16 +51,13 @@ namespace DatingApp.API.Migrations
                 nullable: false,
                 defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
 
-            migrationBuilder.AddColumn<string>(
-                name: "LookingFor",
-                table: "Users",
-                nullable: true);
-
             migrationBuilder.CreateTable(
                 name: "Photos",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn)
                         .Annotation("Sqlite:Autoincrement", true),
                     Url = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
@@ -94,6 +92,10 @@ namespace DatingApp.API.Migrations
                 table: "Users");
 
             migrationBuilder.DropColumn(
+                name: "Country",
+                table: "Users");
+
+            migrationBuilder.DropColumn(
                 name: "Created",
                 table: "Users");
 
@@ -106,10 +108,6 @@ namespace DatingApp.API.Migrations
                 table: "Users");
 
             migrationBuilder.DropColumn(
-                name: "Interests",
-                table: "Users");
-
-            migrationBuilder.DropColumn(
                 name: "Introduction",
                 table: "Users");
 
@@ -119,10 +117,6 @@ namespace DatingApp.API.Migrations
 
             migrationBuilder.DropColumn(
                 name: "LastActive",
-                table: "Users");
-
-            migrationBuilder.DropColumn(
-                name: "LookingFor",
                 table: "Users");
         }
     }
