@@ -40,14 +40,13 @@ namespace DatingApp.API.Migrations
                     b.Property<string>("Content")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("DateRead")
+                    b.Property<DateTime?>("DateRead")
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("IsRead")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("MessageSent")
-                        .IsRequired()
+                    b.Property<DateTime>("MessageSent")
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("RecipientDeleted")
@@ -77,8 +76,7 @@ namespace DatingApp.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("DateAdded")
-                        .IsRequired()
+                    b.Property<DateTime>("DateAdded")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
@@ -115,12 +113,10 @@ namespace DatingApp.API.Migrations
                     b.Property<string>("Country")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Created")
-                        .IsRequired()
+                    b.Property<DateTime>("Created")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("DateOfBirth")
-                        .IsRequired()
+                    b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Gender")
@@ -135,8 +131,7 @@ namespace DatingApp.API.Migrations
                     b.Property<string>("KnownAs")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("LastActive")
-                        .IsRequired()
+                    b.Property<DateTime>("LastActive")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("LookingFor")
